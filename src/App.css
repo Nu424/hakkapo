@@ -1,8 +1,163 @@
+/* ハッカー風カスタムスタイル */
+
 #root {
   width: 100%;
   height: 100vh;
+  font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+  background: #000000;
 }
 
+/* スクロールバーのカスタマイズ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border: 1px solid #00ff41;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #00ff41;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39ff14;
+  box-shadow: 0 0 15px #39ff14;
+}
+
+/* セレクトボックスのドロップダウンスタイル */
+select option {
+  background-color: #000000;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+}
+
+/* グロー効果のカスタムアニメーション */
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 15px #00ff41;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* ASCII アートのグロー効果 */
+.ascii-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* タイピングカーソルのアニメーション強化 */
+.typing-cursor {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ターミナル風の背景パターン */
+.terminal-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 79px,
+    rgba(0, 255, 65, 0.03) 80px,
+    rgba(0, 255, 65, 0.03) 81px,
+    transparent 82px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ホバー時のネオン効果強化 */
+.neon-hover:hover {
+  box-shadow: 
+    0 0 5px #00ff41,
+    0 0 10px #00ff41,
+    0 0 20px #00ff41,
+    inset 0 0 5px rgba(0, 255, 65, 0.1);
+  border-color: #00ff41;
+}
+
+/* フォーカス時のネオン効果 */
+.neon-focus:focus {
+  box-shadow: 
+    0 0 5px #00ff41,
+    0 0 10px #00ff41,
+    0 0 15px #00ff41;
+  border-color: #00ff41;
+}
+
+/* データストリーム風の背景アニメーション */
+.data-stream::after {
+  content: '01001000 01100001 01100011 01101011 01100101 01110010';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 8px;
+  color: rgba(0, 255, 65, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: matrix-rain 10s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* モーダルのハッカー風スタイル */
+.modal-backdrop {
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* ボタンのパルス効果 */
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 65, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 65, 0);
+  }
+}
+
+/* 旧スタイルの削除（不要になったもの） */
 .logo {
   height: 6em;
   padding: 1.5em;

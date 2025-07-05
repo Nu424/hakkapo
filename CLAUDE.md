@@ -38,6 +38,14 @@ npm run lint
 npm run preview
 ```
 
+## TypeScript Configuration
+
+- **Strict Mode**: Enabled for type safety
+- **Multiple tsconfig files**: 
+  - `tsconfig.app.json` for application code
+  - `tsconfig.node.json` for Node.js environments
+- **React 19 JSX Transform**: Automatic JSX runtime configured
+
 ## Current Implementation Status
 
 The application is currently in initial development with:
@@ -46,6 +54,7 @@ The application is currently in initial development with:
 - Proper TypeScript configuration with strict mode
 - Modern ESLint configuration with React hooks support
 - Vite build system with SWC for fast compilation
+- Monaco Editor integration with dark theme
 
 **Missing Features:**
 - LLM API integration and service layer
@@ -53,6 +62,7 @@ The application is currently in initial development with:
 - Character-by-character text display logic
 - Modal for generated text preview
 - State management for LLM responses
+- Error handling and loading states
 
 ## LLM API Integration
 

@@ -12,7 +12,7 @@ function App() {
   const [prompt, setPrompt] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [charsPerKeyPress, setCharsPerKeyPress] = useState(5)
-  
+
   const {
     generatedText,
     displayedText,
@@ -71,7 +71,7 @@ function App() {
         model,
         prompt
       })
-      
+
       setGeneratedText(response.text)
     } catch (error) {
       setError(error instanceof Error ? error.message : '予期しないエラーが発生しました')
@@ -93,21 +93,13 @@ function App() {
       <div className="w-1/3 bg-black p-6 border-r border-green-400/30">
         <h1 className="text-2xl font-bold mb-6 text-center">
           <div className="ascii-glow mb-2">
-            <span className="block text-green-400 text-xs">
-                __  _____    __ __ __ __ ___    ____  ____ 
-            </span>
-            <span className="block text-green-400 text-xs">
-               / / / /   |  / //_// //_//   |  / __ \/ __ \
-            </span>
-            <span className="block text-green-400 text-xs">
-              / /_/ / /| | / ,&lt;  / ,&lt;  / /| | / /_/ / / / /
-            </span>
-            <span className="block text-green-400 text-xs">
-             / __  / ___ |/ /| |/ /| |/ ___ |/ ____/ /_/ / 
-            </span>
-            <span className="block text-green-400 text-xs">
-            /_/ /_/_/  |_/_/ |_/_/ |_/_/  |_/_/    \____/  
-            </span>
+            <pre className="text-green-400 text-xs">
+{`    __  _____    __ __ __ __ ___    ____  ____ 
+   / / / /   |  / //_// //_//   |  / __ \\/ __ \\
+  / /_/ / /| | / ,<  / ,<  / /| | / /_/ / / / /
+ / __  / ___ |/ /| |/ /| |/ ___ |/ ____/ /_/ / 
+/_/ /_/_/  |_/_/ |_/_/ |_/_/  |_/_/    \\____/  `}
+            </pre>
           </div>
           <span className="block text-cyan-400 text-xs mt-2 animate-pulse">
             <span className="text-green-400">{'>'}</span> INITIALIZING HACKER SIMULATOR v2.1.3...
@@ -116,7 +108,7 @@ function App() {
             [SYSTEM_READY] [NEURAL_LINK_ACTIVE]
           </span>
         </h1>
-        
+
         {/* エラーメッセージ */}
         {error && (
           <div className="mb-4 p-3 bg-black border border-red-500/50 rounded-md shadow-lg shadow-red-500/20">
@@ -125,17 +117,17 @@ function App() {
             </p>
           </div>
         )}
-        
+
         {/* 状態表示 */}
         <div className="mb-4 p-3 bg-black border border-green-400/30 rounded-md shadow-lg shadow-green-400/20">
           <p className="text-xs text-cyan-400">
-            <span className="text-green-400">SYSTEM STATUS:</span> 
+            <span className="text-green-400">SYSTEM STATUS:</span>
             <span className="text-green-400 ml-2 font-bold">{
               typingState === 'idle' ? 'STANDBY' :
-              typingState === 'generating' ? 'GENERATING...' :
-              typingState === 'ready' ? 'READY TO HACK' :
-              typingState === 'typing' ? 'HACKING IN PROGRESS...' :
-              typingState === 'completed' ? 'HACK COMPLETE' : 'UNKNOWN'
+                typingState === 'generating' ? 'GENERATING...' :
+                  typingState === 'ready' ? 'READY TO HACK' :
+                    typingState === 'typing' ? 'HACKING IN PROGRESS...' :
+                      typingState === 'completed' ? 'HACK COMPLETE' : 'UNKNOWN'
             }</span>
           </p>
           {generatedText && (
@@ -144,7 +136,7 @@ function App() {
             </p>
           )}
         </div>
-        
+
         <div className="space-y-4">
           {/* APIキー入力 */}
           <div>
@@ -159,7 +151,7 @@ function App() {
               placeholder="ENTER_OPENROUTER_API_KEY..."
             />
           </div>
-          
+
           {/* モデル選択 */}
           <div>
             <label className="block text-sm font-medium mb-2 text-cyan-400">
@@ -176,7 +168,7 @@ function App() {
               <option value="anthropic/claude-sonnet-4">Claude Sonnet 4</option>
             </select>
           </div>
-          
+
           {/* タイピング速度設定 */}
           <div>
             <label className="block text-sm font-medium mb-2 text-cyan-400">
@@ -193,7 +185,7 @@ function App() {
             />
             <p className="text-xs text-cyan-400/70 mt-1">1 byte/keystroke (slow) ~ 10 bytes/keystroke (fast)</p>
           </div>
-          
+
           {/* お題入力 */}
           <div>
             <label className="block text-sm font-medium mb-2 text-cyan-400">
@@ -206,7 +198,7 @@ function App() {
               placeholder="ENTER_HACKING_OBJECTIVE..."
             />
           </div>
-          
+
           {/* お題送信ボタン */}
           <button
             className="w-full px-4 py-2 bg-black border border-green-400 text-green-400 hover:bg-green-400/10 hover:shadow-lg hover:shadow-green-400/50 disabled:border-gray-600 disabled:text-gray-600 disabled:cursor-not-allowed rounded-md transition-all duration-200 font-bold"
@@ -218,12 +210,12 @@ function App() {
           </button>
         </div>
       </div>
-      
+
       {/* 右側のエディターエリア */}
       <div className="flex-1 p-6">
         <div className="h-full bg-black rounded-lg border border-green-400/30 overflow-hidden flex flex-col shadow-lg shadow-green-400/20">
           <div className="text-xs text-cyan-400 p-3 border-b border-green-400/30 flex-shrink-0 bg-black">
-            <span className="text-green-400">{'>'}</span> TERMINAL_OUTPUT 
+            <span className="text-green-400">{'>'}</span> TERMINAL_OUTPUT
             <span className="ml-4 text-green-400/70">
               [SECURE_CONNECTION_ESTABLISHED]
             </span>
@@ -234,7 +226,7 @@ function App() {
           <div className="flex-1 min-h-0">
             <MonacoEditor
               value={displayedText}
-              onChange={() => {}}
+              onChange={() => { }}
               language="javascript"
               theme="vs-dark"
               readOnly={true}
@@ -242,7 +234,7 @@ function App() {
           </div>
         </div>
       </div>
-      
+
       {/* モーダル */}
       <TextPreviewModal
         isOpen={isModalOpen}

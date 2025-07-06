@@ -229,7 +229,7 @@ function App() {
               onChange={() => { }}
               language="javascript"
               theme="vs-dark"
-              readOnly={true}
+              // readOnly={true}
             />
           </div>
         </div>

@@ -83,7 +83,7 @@ npm run preview    # 本番ビルドをローカルでプレビュー
 
 ## 🏗️ 技術スタック
 
-- **React 18 + TypeScript**
+- **React 19 + TypeScript**
 - **Vite** – 超高速開発サーバ
 - **Tailwind CSS** – サイバーパンク UI
 - **Monaco Editor** – 本格エディタ表示
